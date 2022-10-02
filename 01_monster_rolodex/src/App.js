@@ -16,12 +16,23 @@ class App extends Component {
 
   changeTheName() {
     // way one
-    this.setState({ name: 'Italo', age: this.state.age + 2 })
+    // most straightly
+    // this.setState({name: 'Italo'});
 
     // way two
+    // just change directly the index using old value
     // this.setState(state => ({name: state.name + state.name}))
+
+    // way three
+    // return the final object after conditions
+    this.setState(state => {
+      let name = state.name === 'Richelly' ? 'Italo' : 'Richelly';
+      let age = state.age < 30 ? state.age + 1 : 18;
+            
+      return {name, age};
+    })
   }
-  
+
   render() {
     return (
       <div className="App">
@@ -29,7 +40,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <p>Hi My name is {this.state.name}.</p>
           <p>And I have {this.state.age} years old.</p>
-          <button onClick={this.changeTheName}>
+          <button onClick={() => this.changeTheName()}>
             Change the Name!
           </button>
         </header>
