@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import CardList from './components/card-list/card-list.component';
 import './App.css';
 
 class App extends Component {
@@ -24,7 +25,7 @@ class App extends Component {
             return { monsters: users };
           },
           () => {
-            return console.log(this.state.monsters);
+            // return console.log(this.state.monsters);
           }
         )
       );
@@ -85,9 +86,7 @@ class App extends Component {
           autoFocus={true}
           onChange={onSearchChange}
         />
-        {filteredMonsters.map((monster) => (
-          <h1 key={monster.id}>{monster.name}</h1>
-        ))}
+        <CardList monsters={filteredMonsters} />
       </div>
     );
   }
