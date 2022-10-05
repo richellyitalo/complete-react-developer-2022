@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import CardContainer from '../card-container/card-container.component';
+import CardItem from '../card-item/card-item.component';
 
 import './card-list.style.css';
 
@@ -10,9 +10,7 @@ class CardList extends Component {
     return (
       <div className="card-list">
         {monsters.map((monster) => {
-          const { id, name, email } = monster;
-
-          return <CardContainer id={id} name={name} email={email} />;
+          return <CardItem monster={monster} />;
         })}
       </div>
     );
