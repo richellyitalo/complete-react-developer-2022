@@ -7,6 +7,7 @@ const App = () => {
   console.log('render');
   const [searchField, setSearchField] = useState('');
   const [monsters, setMonsters] = useState([]);
+  const [filteredMonsters, setFilteredMonsters] = useState(monsters);
 
   const onSearchChange = (event) =>
     setSearchField(event.target.value.toLowerCase());
@@ -17,11 +18,15 @@ const App = () => {
       .then((users) => setMonsters(users));
   }, []);
 
-  const filteredMonsters = monsters.filter(
-    (monster) =>
-      searchField.length === 0 ||
-      monster.name.toLowerCase().includes(searchField)
-  );
+  useEffect(() => {
+    const filteredMonsters = monsters.filter(
+      (monster) =>
+        searchField.length === 0 ||
+        monster.name.toLowerCase().includes(searchField)
+    );
+
+    setFilteredMonsters(filteredMonsters);
+  }, [monsters, searchField]);
 
   return (
     <div className="App">
