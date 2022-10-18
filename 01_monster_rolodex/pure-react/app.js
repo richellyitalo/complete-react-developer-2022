@@ -1,5 +1,5 @@
 const Person = (props) => {
-  props.children && console.log(props.children);
+//   props.children && console.log(props.children);
   return React.createElement('div', {}, [
     React.createElement('h2', { style: { marginBottom: 0 } }, props.name),
     React.createElement('p', {}, `${props.age} years olds`),
