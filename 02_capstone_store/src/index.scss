@@ -1,4 +1,19 @@
 body {
   margin: 0;
   font-family: 'Roboto Condensed', Arial, Tahoma;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: 'source-code-pro', Menlo, Monaco, Consolas;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+* {
+  box-sizing: border-box;
 }
